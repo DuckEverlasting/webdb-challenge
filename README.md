@@ -33,20 +33,28 @@ This will be akin to the Web API that you built in the last sprint, only this ti
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 1. Explain the difference between `RDBMS` and `SQL`.
+  RDBMS stands for "relational database management system", and can refer to any relational database. SQL (Structured Query Management) is a language used by just about all RDBMSs.
+
 1. Why do tables need a `primary key`?
+  The need one so that every data entry can be reliably (and uniquely) reached by a query. Basically, it ensures that every entry in a database has something unique.
+
 1. What is the name given to a table column that references the primary key on another table.
+  Foreign key.
+
 1. What do we need in order to have a _many to many_ relationship between two tables.
+  Let's say you have a table representing entity A and another representing entity B. If when looking at the relationship between A and B, you find that there are instances where single items in A is linked to multiple items in B, and also single items in B are linked to multiple items in A, that is a many to many relationship.
+
 
 ## Project Set Up
 
 Follow these steps for starting your project.
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your project manager as collaborator on Github.
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!).
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-- [ ] Push commits: git push origin `<firstName-lastName>`.
+- [x] Create a forked copy of this project.
+- [x] Add your project manager as collaborator on Github.
+- [x] Clone your OWN version of the repository (Not Lambda's by mistake!).
+- [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+- [x] Push commits: git push origin `<firstName-lastName>`.
 
 Follow these steps for completing your project.
 
@@ -58,27 +66,27 @@ Follow these steps for completing your project.
 
 **NOTE** There is no boilerplate for you for this project. You will need to take the steps necessary for creating this project from scratch. Start by initializing your project with a `package.json` file and go from there.
 
-- [ ] A `project` can contain multiple actions and has:
-  - [ ] a unique Id.
-  - [ ] a name.
-  - [ ] a description.
-  - [ ] a flag that indicates if the project is complete or not.
-- [ ] An `action` belongs to only one project. An action has:
-  - [ ] a unique id.
-  - [ ] a description of what needs to be done.
-  - [ ] a notes column to add additional information.
-  - [ ] a flag that indicates if the action has been completed.
+- [x] A `project` can contain multiple actions and has:
+  - [x] a unique Id.
+  - [x] a name.
+  - [x] a description.
+  - [x] a flag that indicates if the project is complete or not.
+- [x] An `action` belongs to only one project. An action has:
+  - [x] a unique id.
+  - [x] a description of what needs to be done.
+  - [x] a notes column to add additional information.
+  - [x] a flag that indicates if the action has been completed.
 
 Feel free to name the tables and fields anything you want. **Add relationships** as you see fit.
 
 ### Tasks
 
-- [ ] Build the database and tables using knex migrations. **Seeding is not needed**.
-- [ ] Build the API with the following endpoints:
+- [x] Build the database and tables using knex migrations. **Seeding is not needed**.
+- [x] Build the API with the following endpoints:
 
-  - [ ] POST for adding projects.
-  - [ ] POST for adding actions.
-  - [ ] GET for retrieving a `project` by its `id` that returns an object with the following structure:
+  - [x] POST for adding projects.
+  - [x] POST for adding actions.
+  - [x] GET for retrieving a `project` by its `id` that returns an object with the following structure:
 
     ```js
     {
@@ -107,15 +115,15 @@ Feel free to name the tables and fields anything you want. **Add relationships**
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-Add the remaining CRUD operations for projects and actions.
+- [x] Add the remaining CRUD operations for projects and actions.
 
-Use `knex` to add _data seeding_ scripts for projects and actions.
+- [x] Use `knex` to add _data seeding_ scripts for projects and actions.
 
-Add support for the concept of `contexts`. A context is something like _at home_, _at work_ or _at computer_. The idea is that some actions require one or more `contexts` in order to be worked on. For example, the action of _file income taxes_ may require that you are _at home_, _at computer_ and _online_ so if you are _at work_ and look at the list of pending actions you could do in your current context, filing your taxes will not be one of them.
+- [x] Add support for the concept of `contexts`. A context is something like _at home_, _at work_ or _at computer_. The idea is that some actions require one or more `contexts` in order to be worked on. For example, the action of _file income taxes_ may require that you are _at home_, _at computer_ and _online_ so if you are _at work_ and look at the list of pending actions you could do in your current context, filing your taxes will not be one of them.
 
-A `context` can be applied to more than one `action`. An action can be tied to more than one context, like in the example above.
+- [x] A `context` can be applied to more than one `action`. An action can be tied to more than one context, like in the example above.
 
-When retrieving an `action` by _id_, add a property that lists all the `contexts` related to that action.
+- [x] When retrieving an `action` by _id_, add a property that lists all the `contexts` related to that action.
 
 **Remember to run `npm init -y` to generate a _package.json_ before adding your dependencies.**
 
