@@ -5,7 +5,11 @@ module.exports = {
   find,
   findById,
   update,
-  remove
+  remove,
+  addActionContext,
+  findActionContext,
+  findActionContextByIds,
+  removeActionContext
 }
 
 function add(action) {
@@ -51,10 +55,35 @@ function update(id, changes) {
 }
 
 function remove(id) {
-  return findById(id)
-    .then(() => {
-      return db('actions')
-        .where('id', id)
-        .del();
+  return db('actions')
+    .where('id', id)
+    .del();
+}
+
+function addActionContext(actionInContext) {
+  return db('actions_in_context')
+    .insert(actionInContext)
+    .then(ids => {
+      [id] = ids;
+      return findById(id);
     });
+}
+
+function findActionContext() {
+  console.log("DING");
+  return db('actions_in_context');
+}
+
+async function findActionContextByIds(actionId, contextId) {
+  return db('actions_in_context')
+    .where('action_id', actionId)
+    .where('context_id', contextId)
+    .first();
+}
+
+function removeActionContext(actionId, contextId) {
+  return db('actions_in_context')
+    .where('action_id', actionId)
+    .where('context_id', contextId)
+    .del();
 }

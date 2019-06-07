@@ -41,10 +41,7 @@ function update(id, changes) {
 }
 
 function remove(id) {
-  return findById(id)
-    .then(() => {
-      return db('contexts')
-        .where('id', id)
-        .del();
-    });
+  return db('contexts')
+    .where('id', id)
+    .del();
 }

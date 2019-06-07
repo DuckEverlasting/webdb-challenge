@@ -50,10 +50,7 @@ function update(id, changes) {
 }
 
 function remove(id) {
-  return findById(id)
-    .then(() => {
-      return db('projects')
-        .where('id', id)
-        .del();
-    });
+  return db('projects')
+    .where('id', id)
+    .del();
 }
