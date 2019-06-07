@@ -7,7 +7,9 @@ exports.up = function(knex, Promise) {
         .notNullable()
         .unique();
       tbl.string("description", 255);
-      tbl.boolean("completed");
+      tbl
+        .boolean("completed")
+        .defaultTo(false);
     })
     .createTable("actions", tbl => {
       tbl.increments();
@@ -15,8 +17,10 @@ exports.up = function(knex, Promise) {
         .string("description", 255)
         .notNullable()
         .unique();
-      tbl.string("notes", 255);
-      tbl.boolean("completed");
+      tbl.string("notes", 1023);
+      tbl
+        .boolean("completed")
+        .defaultTo(false);
       tbl
         .integer("project_id")
         .unsigned()
