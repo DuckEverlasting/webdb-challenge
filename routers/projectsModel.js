@@ -22,7 +22,7 @@ function find() {
 }
 
 async function findById(id) {
-  const project = await db('projects as p')
+  const project = await db('projects')
     .where('id', id)
     .first();
   project.actions = await getActionsbyProject(id);

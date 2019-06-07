@@ -9,7 +9,8 @@ router.post('/', (req, res) => {
     .then(data => res.status(201).json(data))
     .catch(err => res.status(500).json(
       { message: "you've met with a terrible fate, haven't you?", error: err }
-    ))});
+    ))
+});
 
 router.get('/', (req, res) => {
   actions.find()
@@ -25,7 +26,8 @@ router.get('/:id', (req, res) => {
     .then(data => res.status(200).json(data))
     .catch(err => res.status(500).json(
       { message: "you've met with a terrible fate, haven't you?", error: err }
-    ))})
+    ))
+})
 
 router.put('/:id', (req, res) => {
   const id = req.params.id
@@ -34,7 +36,8 @@ router.put('/:id', (req, res) => {
     .then(data => res.status(200).json(data))
     .catch(err => res.status(500).json(
       { message: "you've met with a terrible fate, haven't you?", error: err }
-    ))});
+    ))
+});
 
 router.delete('/:id', (req, res) => {
   const id = req.params.id
@@ -44,7 +47,8 @@ router.delete('/:id', (req, res) => {
     })
     .catch(err => res.status(500).json(
       { message: "you've met with a terrible fate, haven't you?", error: err }
-    ))});
+    ))
+});
 
 
 module.exports = router;
