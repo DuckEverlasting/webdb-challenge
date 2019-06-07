@@ -29,8 +29,12 @@ async function findById(id) {
   const action = await db('actions')
     .where('id', id)
     .first();
-  action.contexts = await getContextsbyAction(id);
-  return action;
+  if (!action) {
+    return null
+  } else {
+    action.contexts = await getContextsbyAction(id);
+    return action;
+  }
 }
 
 function getContextsbyAction(id) {
@@ -70,7 +74,6 @@ function addActionContext(actionInContext) {
 }
 
 function findActionContext() {
-  console.log("DING");
   return db('actions_in_context');
 }
 

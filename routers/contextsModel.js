@@ -21,10 +21,15 @@ function find() {
   return db('contexts');
 }
 
-function findById(id) {
-  return db('contexts')
+async function findById(id) {
+  const context = await db('contexts')
     .where('id', id)
     .first();
+  if (!context) {
+    return null
+  } else {
+    return context;
+  }
 }
 
 function update(id, changes) {
