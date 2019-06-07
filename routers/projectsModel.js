@@ -21,10 +21,19 @@ function find() {
   return db('projects');
 }
 
-function findById(id) {
-  return db('projects')
+async function findById(id) {
+  const project = await db('projects as p')
     .where('id', id)
     .first();
+  project.actions = await getActionsbyProject(id);
+  return project;
+}
+
+function getActionsbyProject(id) {
+  return db('projects as p')
+    .join('actions as a', 'a.project_id', 'p.id')
+    .select('a.id', 'a.description', 'a.notes', 'a.completed')
+    .where('p.id', id)
 }
 
 function update(id, changes) {
